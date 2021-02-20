@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">TutorME</string>
+
+    <!-- PLEASE KEEP THIS App ID IN SAFE PLACE -->
+    <!-- Get your own App ID at https://dashboard.agora.io/ -->
+    <!-- After you entered the App ID, remove <##> outside of Your App ID -->
+    <string name="agora_app_id">68d9a471ec234021a6a34580fe694f99</string>
+    <!-- Obtain a temp Access Token at https://dashboard.agora.io -->
+    <!-- You will need to deploy your own token server for production release -->
+    <!-- Leave this value empty if Security keys/Token is not enabled for your project -->
+    <string name="agora_access_token">00668d9a471ec234021a6a34580fe694f99IABRErqwFWbe6Hs86MQKgWMrT7U+I+NQoPvyI6zZ3Ay9w1ygsJIAAAAAEABwjq6PTJoaYAEAAQBMmhpg</string>
+
+    <string-array name="roles">
+        <item>Student</item>
+        <item>Teacher</item>
+    </string-array>
+
+    <string-array name="Grades">
+        <item>1st</item>
+        <item>2st</item>
+        <item>3st</item>
+        <item>4st</item>
+        <item>5st</item>
+        <item>6st</item>
+        <item>7st</item>
+        <item>8st</item>
+        <item>9st</item>
+        <item>10st</item>
+        <item>11st</item>
+        <item>12st</item>
+    </string-array>
+
+    <string-array name="Subjects">
+        <item>English</item>
+        <item>Maths</item>
+        <item>Physics</item>
+        <item>Chemistry</item>
+        <item>Biology</item>
+        <item>History</item>
+        <item>Economics</item>
+        <item>Geography</item>
+    </string-array>
+
+    <string name="app_userID">Id</string>
+</resources>

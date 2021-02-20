@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AskQuestion">
+
+    <TextView
+        android:id="@+id/AddHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "Describe your Question"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        style="@style/Header"
+        />
+
+
+    <Spinner
+        android:id="@+id/gradeSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/AddHeader"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        />
+
+    <Spinner
+        android:id="@+id/subjectSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gradeSpinner"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        />
+
+
+    <EditText
+        android:id="@+id/questionTopicTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_below="@+id/subjectSpinner"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:hint = "Topic" />
+
+    <EditText
+        android:id="@+id/questionDescTxt"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_below="@+id/questionTopicTxt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:hint = "Provde Details here"
+        android:inputType="textMultiLine" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/submitQuestion"
+        android:text="Submit"
+        android:layout_below="@+id/questionDescTxt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        />
+
+</RelativeLayout>
