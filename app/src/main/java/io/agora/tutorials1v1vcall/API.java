@@ -19,6 +19,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class API {
     private Context context;
@@ -29,6 +30,8 @@ public class API {
     Integer questionID = 0;
 
     IAPIResponse callback;
+
+    String role;
 
     API(Context context, IAPIResponse callback){
         this.context = context;
@@ -67,6 +70,7 @@ public class API {
 
     void fetchStudentQuestions(int userId){
         String url = baseUrl + "GetQuestionsForStudent?userid=" + userId;
+        Log.d("API", "STudent Questoin URL   " + url);
         queue = Volley.newRequestQueue(context);
         StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
 
@@ -96,7 +100,7 @@ public class API {
         String url = baseUrl + "AddUser?email=" + email + "&name=" + name + "&role=" + role;
 
         queue = Volley.newRequestQueue(context);
-
+        this.role = role;
         StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
 
             @Override
@@ -129,6 +133,7 @@ public class API {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putInt("Id", id);
+        editor.putString("role", this.role);
         editor.apply();
     }
 
@@ -225,22 +230,32 @@ public class API {
         try {
             JSONObject obj = new JSONObject(df);
             Log.d("API", "Length " + String.valueOf(obj.length()));
-            for(int i = 0; i < obj.length(); i++){
-                if (obj.has(String.valueOf(i))){
-                    JSONObject row = obj.getJSONObject(String.valueOf(i));
+//            Log.d("API", "Kys available are " + obj.keys().get(0));
 
-                    int userID = row.getInt("userID");
-                    int questionID = row.getInt("questionID");
-                    int status = row.getInt("status");
-                    int teacherId = row.getInt("teacherID");
-                    String subject = row.getString("subject");
-                    String grade = row.getString("grade");
-                    String topic = row.getString("topic");
-                    String desc = row.getString("desc");
-                    parsedData.add(new Data(userID, questionID, subject, grade, topic, desc, status, teacherId));
-                }
+            Iterator<String> keys = obj.keys();
 
+
+            while(keys.hasNext()){
+                String key = keys.next();
+                JSONObject row = obj.getJSONObject(key);
+
+                int userID = row.getInt("userID");
+                int questionID = row.getInt("questionID");
+                int status = row.getInt("status");
+                int teacherId = row.getInt("teacherID");
+                String subject = row.getString("subject");
+                String grade = row.getString("grade");
+                String topic = row.getString("topic");
+                String desc = row.getString("desc");
+                parsedData.add(new Data(userID, questionID, subject, grade, topic, desc, status, teacherId));
             }
+
+//            for(int i = 0; i < obj.length(); i++){
+//                if (obj.has(String.valueOf(i))){
+
+//                }
+
+//            }
 
 
         } catch (JSONException e) {

@@ -10,7 +10,9 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity  implements IAPIResponse {
     List<Data> data = new ArrayList<Data>();
     List<Data> filter_data = new ArrayList<Data>();
     ItemAdapter adapter;
+    Spinner grade, subject;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +41,26 @@ public class MainActivity extends AppCompatActivity  implements IAPIResponse {
 
             @Override
             public void onClick(View view) {
-                filterResults("maths");
+                Log.d("Tag", "grade=" + grade.getSelectedItem().toString());
+                Log.d("Tag", "subject=" + subject.getSelectedItem().toString());
+                filterResults(subject.getSelectedItem().toString(), grade.getSelectedItem().toString());
                 Log.d("Hello", "TEST BUTTON PRESS");
             }
         });
 
+
+        grade = (Spinner) findViewById(R.id.gradeSpinner);
+        subject = (Spinner) findViewById(R.id.subjectSpinner);
+
+        ArrayAdapter gradesAdapter = ArrayAdapter.createFromResource(this, R.array.GradesFilter, android.R.layout.simple_spinner_item);
+
+        gradesAdapter.setDropDownViewResource(R.layout.spinner_item);
+        grade.setAdapter(gradesAdapter);
+
+        ArrayAdapter subjectsAdapter = ArrayAdapter.createFromResource(this, R.array.SubjectsFilter, android.R.layout.simple_spinner_item);
+
+        subjectsAdapter.setDropDownViewResource(R.layout.spinner_item);
+        subject.setAdapter(subjectsAdapter);
 
         fetchData();
 //        data.add(new Data("Maths", "Grade: 11", "Topic: Calculus", "Details: Differentiation"));
@@ -75,12 +93,14 @@ public class MainActivity extends AppCompatActivity  implements IAPIResponse {
         api.fetchQuestions(teacherId);
     }
 
-    protected void filterResults(String subject){
+    protected void filterResults(String subject, String grade){
         filter_data.clear();
 
         for (int i = 0; i < data.size(); i++){
             Log.d("Hello", data.get(i).subject.toString());
-            if (data.get(i).subject.equalsIgnoreCase(subject)){
+            if (data.get(i).subject.equalsIgnoreCase(subject) &&
+                    data.get(i).grade.equalsIgnoreCase(grade) ){
+      //      if (data.get(i).subject.equalsIgnoreCase(subject)){
                 filter_data.add(data.get(i));
             }
         }
@@ -89,10 +109,6 @@ public class MainActivity extends AppCompatActivity  implements IAPIResponse {
         adapter.notifyDataSetChanged();
     }
 
-    protected void callAPI(){
-        API api = new API(this);
-//        api.callApi();
-    }
 
     @Override
     public void onSuccessData(ArrayList<Data> data1) {

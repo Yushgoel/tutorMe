@@ -3,9 +3,10 @@
     xmlns:card_view = "http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent" android:layout_height="wrap_content"
     card_view:cardCornerRadius="10dp"
-    android:layout_marginTop="8dp"
+    android:layout_marginTop="5dp"
     android:layout_marginRight="15dp"
     android:layout_marginLeft="15dp"
+    android:outlineAmbientShadowColor="#BFE6F6"
     >
 
     <RelativeLayout
@@ -16,9 +17,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
-        android:layout_marginTop="15dp"
-        android:textSize="25dp"
-        android:textColor="#000"
+        android:layout_marginTop="10dp"
+        style="@style/ListText"
         android:text="Subject" />
 
     <TextView
@@ -27,46 +27,49 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_marginRight="25dp"
-        android:layout_marginTop="15dp"
-        android:textSize="25dp"
-        android:textColor="#000"
+        android:layout_marginTop="10dp"
+        style="@style/ListText"
         android:text="Grade" />
+
+
+
+
 
     <TextView
         android:id="@+id/txt_Topic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txt_Subject"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="15dp"
-        android:textSize="20dp"
-        android:textColor="#000"
-        android:text="Topic: " />
 
-    <TextView
-        android:id="@+id/txt_Desc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txt_Topic"
         android:layout_marginLeft="25dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp"
-        android:textSize="20dp"
-        android:textColor="#000"
-        android:text="Details: " />
+        android:layout_marginTop="10dp"
+        android:textSize="15dp"
+        style="@style/ListText"
+        android:text="Topic: " />
 
     <Button
         android:id="@+id/join_button"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:layout_below="@+id/txt_Grade"
+        android:layout_below="@+id/txt_Subject"
+        android:layout_marginTop="2dp"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="15dp"
         android:layout_marginRight="15dp"
-        android:text="Join \n Meeting"
-        android:background="#5555FF"
+        android:textSize="15dp"
+        android:text="Join Meeting"
+        style="@style/ButtonJoinMeeting"
         />
-
+        <TextView
+            android:id="@+id/txt_Desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_Topic"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="15dp"
+            android:textSize="15dp"
+            style="@style/ListText"
+            android:text="Details: " />
     </RelativeLayout>
 
 </android.support.v7.widget.CardView>

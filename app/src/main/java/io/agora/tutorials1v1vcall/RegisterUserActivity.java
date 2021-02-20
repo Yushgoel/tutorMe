@@ -30,7 +30,7 @@ public class RegisterUserActivity extends AppCompatActivity {
 
         ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.roles, android.R.layout.simple_spinner_item);
 
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(R.layout.spinner_item);
         role.setAdapter(adapter);
 
         submit = (Button) findViewById(R.id.SubmitButton);

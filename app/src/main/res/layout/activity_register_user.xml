@@ -57,6 +57,8 @@
         android:layout_below="@+id/roleSpinner"
         android:layout_marginTop="60dp"
         android:layout_centerHorizontal="true"
+
+        style="@style/Button"
     />
 
 </RelativeLayout>

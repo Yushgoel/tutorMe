@@ -7,20 +7,46 @@
     tools:context=".MainActivity">
 
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycle"
-        android:layout_width="match_parent"
+    <Spinner
+        android:id="@+id/gradeSpinner"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="32dp"
         />
+    <Spinner
+        android:id="@+id/subjectSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/gradeSpinner"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="32dp"
+        />
+
 
     <Button
         android:id="@+id/filter_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:text="Filter!" />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        style="@style/Button"
+        android:layout_marginTop="20dp"
+        android:text="Filter" />
+
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/filter_button"
+        android:layout_marginTop="50dp"
+        />
 
 
 

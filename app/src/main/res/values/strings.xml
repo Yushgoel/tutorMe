@@ -8,7 +8,7 @@
     <!-- Obtain a temp Access Token at https://dashboard.agora.io -->
     <!-- You will need to deploy your own token server for production release -->
     <!-- Leave this value empty if Security keys/Token is not enabled for your project -->
-    <string name="agora_access_token">00668d9a471ec234021a6a34580fe694f99IABRErqwFWbe6Hs86MQKgWMrT7U+I+NQoPvyI6zZ3Ay9w1ygsJIAAAAAEABwjq6PTJoaYAEAAQBMmhpg</string>
+    <string name="agora_access_token">00668d9a471ec234021a6a34580fe694f99IAC54ukxcjkjctecdkHD/tqqbfzk8V1q2AvLbBWxgWkzdFygsJIAAAAAEABwjq6PCBwyYAEAAQAHHDJg</string>
 
     <string-array name="roles">
         <item>Student</item>
@@ -16,21 +16,40 @@
     </string-array>
 
     <string-array name="Grades">
-        <item>1st</item>
-        <item>2st</item>
-        <item>3st</item>
-        <item>4st</item>
-        <item>5st</item>
-        <item>6st</item>
-        <item>7st</item>
-        <item>8st</item>
-        <item>9st</item>
-        <item>10st</item>
-        <item>11st</item>
-        <item>12st</item>
+
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
     </string-array>
 
     <string-array name="Subjects">
+        <item>English</item>
+        <item>Maths</item>
+        <item>Physics</item>
+        <item>Chemistry</item>
+        <item>Biology</item>
+        <item>History</item>
+        <item>Economics</item>
+        <item>Geography</item>
+    </string-array>
+
+    <string-array name="GradesFilter">
+        <item>-</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+    </string-array>
+
+    <string-array name="SubjectsFilter">
+        <item>-</item>
         <item>English</item>
         <item>Maths</item>
         <item>Physics</item>

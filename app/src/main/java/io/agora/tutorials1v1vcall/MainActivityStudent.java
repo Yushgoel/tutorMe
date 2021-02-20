@@ -1,8 +1,10 @@
 package io.agora.tutorials1v1vcall;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,6 +26,7 @@ public class MainActivityStudent extends AppCompatActivity implements IAPIRespon
     List<Data> data = new ArrayList<Data>();
     List<Data> filter_data = new ArrayList<Data>();
     ItemAdapter adapter;
+    ProgressDialog progressdialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +47,9 @@ public class MainActivityStudent extends AppCompatActivity implements IAPIRespon
             }
         });
 
-
+        progressdialog = new ProgressDialog(MainActivityStudent.this);
+        progressdialog.setMessage("Loading....");
+        progressdialog.show();
         fetchData();
 //        data.add(new Data(0,"Maths", "Grade: 11", "Topic: Calculus", "Details: Differentiation", 0, 1, 0));
 //        data.add(new Data(0, "Physics", "Grade: 5", "Topic: Mechanics", "Details: Pressure", 0, 1, 1));
@@ -73,8 +78,8 @@ public class MainActivityStudent extends AppCompatActivity implements IAPIRespon
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         int userId = preferences.getInt("Id", -1);
-
-        api.fetchStudentQuestions(0);  // TODO: change here
+        SystemClock.sleep(2000);
+        api.fetchStudentQuestions(userId);  // TODO: change here
     }
 
     protected void startActivityFromButton(){
@@ -86,17 +91,23 @@ public class MainActivityStudent extends AppCompatActivity implements IAPIRespon
 
     @Override
     public void onSuccessData(ArrayList<Data> data1) {
-        Log.d("API", String.valueOf(data1.size()));
+        Log.d("API", " Size of THings are for some reason" + data1.size());
         data = data1;
+        if (progressdialog.isShowing())
+            progressdialog.dismiss();
         populateList();
+
     }
 
     @Override
     public void onSuccessInt(int id) {
         Log.d("API", String.valueOf(id));
+        if (progressdialog.isShowing())
+            progressdialog.dismiss();
     }
 
     private void populateList(){
+
         filter_data.clear();
 
         for (int i = 0; i < data.size(); i++){

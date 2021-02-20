@@ -32,12 +32,12 @@ public class AskQuestion extends AppCompatActivity {
 
         ArrayAdapter gradesAdapter = ArrayAdapter.createFromResource(this, R.array.Grades, android.R.layout.simple_spinner_item);
 
-        gradesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        gradesAdapter.setDropDownViewResource(R.layout.spinner_item);
         grade.setAdapter(gradesAdapter);
 
         ArrayAdapter subjectsAdapter = ArrayAdapter.createFromResource(this, R.array.Subjects, android.R.layout.simple_spinner_item);
 
-        subjectsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        subjectsAdapter.setDropDownViewResource(R.layout.spinner_item);
         subject.setAdapter(subjectsAdapter);
 
         submit = (Button) findViewById(R.id.submitQuestion);

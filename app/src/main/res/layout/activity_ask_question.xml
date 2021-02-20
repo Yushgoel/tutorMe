@@ -10,20 +10,44 @@
         android:id="@+id/AddHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text = "Describe your Question"
+        android:text = "Describe your question"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         style="@style/Header"
         />
 
-
-    <Spinner
-        android:id="@+id/gradeSpinner"
+    <TextView
+        android:id="@+id/lblGrade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text = "Choose Grade: "
         android:layout_below="@+id/AddHeader"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="50dp"
+        android:textColor="#000"
+
+        />
+    <Spinner
+        android:id="@+id/gradeSpinner"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/AddHeader"
+        android:layout_toRightOf="@+id/lblGrade"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="48dp"
+        />
+
+    <TextView
+        android:id="@+id/lblSubject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "Choose Subject: "
+        android:layout_below="@+id/gradeSpinner"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="35dp"
+        android:textColor="#000"
         />
 
     <Spinner
@@ -31,30 +55,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/gradeSpinner"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
+        android:layout_toRightOf="@+id/lblSubject"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="32dp"
         />
 
 
     <EditText
         android:id="@+id/questionTopicTxt"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
+        android:ems="8"
         android:layout_below="@+id/subjectSpinner"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginTop="15dp"
+
         android:hint = "Topic" />
 
     <EditText
         android:id="@+id/questionDescTxt"
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
+        android:ems="8"
         android:layout_below="@+id/questionTopicTxt"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
-        android:hint = "Provde Details here"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:hint = "Add description"
         android:inputType="textMultiLine" />
 
     <Button
@@ -65,6 +94,7 @@
         android:layout_below="@+id/questionDescTxt"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
+        style="@style/Button"
         />
 
 </RelativeLayout>
