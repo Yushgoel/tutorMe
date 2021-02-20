@@ -1,0 +1,13 @@
+runtime: python37
+
+handlers:
+
+- url: /static
+  static_dir: static
+
+
+- url: /.*
+  script: auto
+
+env_variables:
+  CLOUD_STORAGE_BUCKET: tutor_app_data # when create new GCP project, give name of Blob Storage
